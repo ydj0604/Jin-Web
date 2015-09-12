@@ -1,0 +1,17 @@
+{% extends "photovibrant/layout.html" %}
+
+{% block content %}
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <li class="show"><img width="450" height="450" src="{{ url_for('static', filename='images/1.jpg') }}" alt="photo_one" /></li>
+            <li><img width="450" height="450" src="{{ url_for('static', filename='images/2.jpg') }}" alt="photo_two" /></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Welcome to Jin Yu's website !!!</h1>
+      </div>
+    </div>
+{% endblock %}

@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <title>photo_vibrant</title>
+    <meta name="description" content="website description" />
+    <meta name="keywords" content="website keywords, website keywords" />
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/modernizr-1.5.min.js') }}"></script>
+
+    <!-- javascript at the bottom for fast page loading -->
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/jquery.sooperfish.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/jquery.easing-sooper.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='scripts/image_fade.js') }}"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+        $('ul.sf-menu').sooperfish();
+    });
+    </script>
+</head>
+
+<body>
+  <div id="main">
+    <header>
+      <div id="logo">
+        <div id="logo_text">
+          <!-- class="logo_colour", allows you to change the colour of the text -->
+          <h1><a href="/"><span class="logo_colour">Jin Yu's Website</span></a></h1>
+        </div>
+      </div>
+      <nav>
+        <ul class="sf-menu" id="nav">
+          <li class="selected"><a href="/">Home</a></li>
+          <li><a href="about">About Me</a></li>
+          <li><a href="portfolio">My Portfolio</a>
+            <ul>
+                <li><a href="#pineapple">Pineapple View-Counter</a></li>
+              <li><a href="#cdn">Content Distribution Network</a></li>
+              <li><a href="#photohangout">PhotoHangout</a></li>
+              <li><a href="#bidder-prediction">Bidder Prediction</a></li>
+              <li><a href="#keyword-network">Keyword Network</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    {% block content %}{% endblock %}
+  </div>
+  <p>&nbsp;</p>
+
+</body>
+</html>
