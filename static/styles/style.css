@@ -406,6 +406,10 @@ Stylesheet for SooperFish by www.SooperThemes.com
 Author: Jurriaan Roelofs
 **/
 
+.drop-down {
+  width: auto !important;
+}
+
 /* Configuration of menu width */
 html body ul.sf-menu ul,html body ul.sf-menu ul li { 
   width: 220px;

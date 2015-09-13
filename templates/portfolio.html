@@ -142,4 +142,24 @@
         </div>
       </div>
     </div>
+
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <img width="450" height="450" src="{{ url_for('static', filename='images/chicken.jpg') }}"/>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <div id="chicken">
+            <h1><a href="https://github.com/ydj0604/Chicken">Chicken</a></h1>
+            <p>
+                Chicken is an Android Application that allows users to register events and take attendance.
+                Host can create events, and guests can check in with the app. GPS location is used to verify that
+                guests are physically within a range of specified location of an event. Parse is used for back-end.
+            </p>
+        </div>
+      </div>
+    </div>
 {% endblock %}
