@@ -406,6 +406,10 @@ Stylesheet for SooperFish by www.SooperThemes.com
 Author: Jurriaan Roelofs
 **/
 
+.emphasize {
+  font-size: 25px;
+}
+
 .drop-down {
   width: auto !important;
 }
