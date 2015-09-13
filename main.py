@@ -5,15 +5,16 @@ app = Flask(__name__)
 
 @app.route('/')
 def index():
-    return render_template('/photovibrant/index.html')
-
-@app.route('/about')
-def about():
-    return render_template('/photovibrant/about.html')
+    return render_template('photovibrant/home.html')
 
 @app.route('/portfolio')
 def portfolio():
-    return render_template('/photovibrant/portfolio.html')
+    return render_template('photovibrant/portfolio.html')
+
+@app.route('/resume')
+def resume():
+    return render_template('photovibrant/resume.html')
+
 
 
 if __name__ == '__main__':

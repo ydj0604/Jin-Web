@@ -5,16 +5,22 @@
       <div id="sidebar_container">
         <div class="gallery">
           <ul class="images">
-            <li class="show"><img width="450" height="450" src="{{ url_for('static', filename='images/1.jpg') }}" alt="photo_one" /></li>
-            <li><img width="450" height="450" src="{{ url_for('static', filename='images/2.jpg') }}" alt="photo_two" /></li>
+            <img width="450" height="450" src="{{ url_for('static', filename='images/hulu.png') }}"/>
           </ul>
         </div>
       </div>
       <div id="content">
         <div id="pineapple">
             <h1>Pineapple View-Counter</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>
+                Pineapple is an entire back-end pipeline for counting and maintaining views for all videos and shows at Hulu in real-time.
+                It utilizes Redis, HBase/Cassandra (two different versions were implemented), and Cron-job. The performances of HBase and Cassandra
+                were compared, and Cassandra was finally chosen as it showed stronger stability. HBase raised node failure issues,
+                region server buffer overflow issues, and double counting issues during busy time. Cassandra showed strong stability while keeping
+                counter accuracy in a reasonable range. This directly affects Hulu customers' experiences since lists of popular videos and shows
+                that are displayed to customers are determined by sorting view counts.
+            </p>
+
         </div>
       </div>
     </div>
@@ -23,15 +29,46 @@
       <div id="sidebar_container">
         <div class="gallery">
           <ul class="images">
-            <img width="450" height="450" src="{{ url_for('static', filename='images/1.jpg') }}"/>
+            <img width="450" height="450" src="{{ url_for('static', filename='images/cdn.png') }}"/>
           </ul>
         </div>
       </div>
       <div id="content">
         <div id="cdn">
-            <h1>Content Distribution Network</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <h1><a href="https://github.com/ydj0604/Content-Distribution-Network">File-Sharing Application</a></h1>
+            <p>
+                Main Components: Client Application, Origin Server, Meta Server, CDN Nodes (local servers for caching),
+                File Storage System (Central Data Center)
+            </p>
+            <p>
+                Client Application: a Linux command-line application, which allows users to upload, download, and share files.
+                Syncing between local file system and server file system is done every 5 seconds. Coordination between
+                multiple users who share files is done by checking timestamps.
+            </p>
+            <p>
+                Origin Server: a software load balancer.
+            </p>
+            <p>
+                Meta Server: a server that keeps track of a list of files that are uploaded or deleted, all the necessary
+                meta data for every file, information about all the CDN Nodes in the system. Meta data includes file hashes and
+                time stamps. It also contains a list of files that each CDN Node contains and ip addresses and ports of CDN Nodes
+                as well as those of FSS. It optimizes the sync flow by checking file hashes and directs sync requests to
+                right CDN Nodes by using its own selection algorithm. Selection Algorithm is as follows: 1. CDN Nodes that have file(s)
+                in cache already 2. Choose the geographically closest CDN Node 3. If all the CDN Nodes that have the file
+                in cache are farther than FSS from the Client App, choose the closest CDN Node, which does not have the file
+                in cache. (this condition prevents the inefficiency which arises when a person first uploads a file in NY
+                and later tries to access it in LA)
+            </p>
+            <p>
+                CDN Nodes: local cache servers that are geographically distributed. Prefetching technique is used to increase
+                cache hit ratio.
+            </p>
+            <p>
+                File Storage System (FSS): a central data center containing all files.
+            </p>
+            <p>
+                <a href="https://docs.google.com/presentation/d/1G8iBTZke0ICHwlI0blQ34HTgESA0paf6LCjBpROqnUs/edit#slide=id.p">PPT</a>
+            </p>
         </div>
       </div>
     </div>
@@ -40,15 +77,20 @@
       <div id="sidebar_container">
         <div class="gallery">
           <ul class="images">
-            <img width="450" height="450" src="{{ url_for('static', filename='images/1.jpg') }}"/>
+            <img width="450" height="450" src="{{ url_for('static', filename='images/photohangout.png') }}"/>
           </ul>
         </div>
       </div>
       <div id="content">
         <div id="photohangout">
-            <h1>PhotoHangout</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <h1><a href="https://github.com/ydj0604/PhotoHangout-Webserver">PhotoHangout</a></h1>
+            <p>
+                PhotoHangout is an IOS application that allows users to edit photos collaboratively in real-time.
+                It utilizes web socket and REST service in back-end.
+            </p>
+            <p>
+                Presentation Video: <a href="https://www.youtube.com/watch?v=VOUcd-RqMaQ">Watch now</a>
+            </p>
         </div>
       </div>
     </div>
@@ -57,15 +99,20 @@
       <div id="sidebar_container">
         <div class="gallery">
           <ul class="images">
-            <img width="450" height="450" src="{{ url_for('static', filename='images/1.jpg') }}"/>
+            <img width="450" height="450" src="{{ url_for('static', filename='images/bidder.png') }}"/>
           </ul>
         </div>
       </div>
       <div id="content">
         <div id="bidder-prediction">
-            <h1>Bidder Prediction</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <h1><a href="https://github.com/ydj0604/classify-bidder">Bidder Prediction</a></h1>
+            <p>
+                A model that predicts the probability of every bidder being a bot given bid history and bidder information and
+                achieved 88% accuracy. Ensemble methods are used to prevent overfitting/underfitting of the model. Extracted
+                features of each bidder are: mean arrival interval, total number of bids, number of
+                devices used, number of auctions used, number of different categories of participation, number of countries accessed
+                from, and the fastest reaction time to the previous bid. IPython-Notebook and R are used.
+            </p>
         </div>
       </div>
     </div>
@@ -74,15 +121,24 @@
       <div id="sidebar_container">
         <div class="gallery">
           <ul class="images">
-            <img width="450" height="450" src="{{ url_for('static', filename='images/1.jpg') }}"/>
+            <img width="450" height="450" src="{{ url_for('static', filename='images/graph.png') }}"/>
           </ul>
         </div>
       </div>
       <div id="content">
         <div id="keyword-network">
-            <h1>Keyword Network</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <h1><a href="https://github.com/ydj0604/Public-Health">Keyword Network</a></h1>
+            <p>
+                Keyword Network is a new technique that can be used for topic modeling, suited for short texts such as tweets or comments.
+                It is aimed to improve the performance of LDA models on short texts.
+                It is a graph where nodes are keywords with directed weighted edges between them. Direction and weight of each edge
+                is based on the probabilistic relationship between the two keywords (nodes). Community detection algorithm is applied
+                on the graph to discover dense clustered groups of keywords, which are representative of possible topics.
+                More details and experimental results are shown in this
+            </p>
+            <p>
+                <a href="https://docs.google.com/presentation/d/1KVi-ZAMbRZLxL_pYrJqkkIZJ-5kIT6RsAbl8ozwjqeU/edit">PPT</a>
+            </p>
         </div>
       </div>
     </div>

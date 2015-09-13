@@ -1,0 +1,38 @@
+{% extends "photovibrant/layout.html" %}
+
+{% block content %}
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <li class="show"><img width="450" height="450" src="{{ url_for('static', filename='images/sm.jpg') }}" alt="photo_one" /></li>
+            <li><img width="550" height="450" src="{{ url_for('static', filename='images/soccer.jpg') }}" alt="photo_three" /></li>
+            <li><img width="450" height="550" src="{{ url_for('static', filename='images/wake.jpg') }}" alt="photo_four" /></li>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Welcome !!!</h1>
+        <p>
+            Hello, my name is Jin and I am currently pursuing MS in Computer Science at UCLA after completing BS in Computer
+            Science at UCLA. I am focusing on distributed systems and machine learning during my MS, and those are my main interests.
+            I love solving the challenges that I face when things need to work at big scale. Anything that needs to be
+            optimized or fails because of scalability issues excites me.
+            I also love exploring new technologies, especially the ones related to distributed systems or big data.
+        </p>
+        <p>
+            From my internship experiences, I came to value code readability and maintainability more than anything else.
+            Meaningful object-oriented class design, clean code, suitable choice of libraries, understandable comments,
+            and even self-explanatory variable/method names are crucial to me when I code. Similarly, I believe simplicity
+            always wins over complexity when designing system architectures.
+        </p>
+        <p>
+            As for my hobbies, I love playing and watching soccer. I have been playing since middle school and am stil playing
+            regularly. Particularly, I love the moments I and the rest of the team are connecting and making good plays as a whole.
+            Wherever I go, one of the very first things I do is find a soccer team I can play on. I also enjoy playing poker and
+            other various sports such as wake-boarding, skiing, ping-pong, and tennis. Of course, I truly love coding and turning
+            interesting ideas into products in my spare time.
+        </p>
+      </div>
+    </div>
+{% endblock %}
