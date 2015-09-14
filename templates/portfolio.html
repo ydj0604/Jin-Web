@@ -15,10 +15,10 @@
             <p>
                 Pineapple is an entire back-end pipeline for counting and maintaining views for all videos and shows at Hulu in real-time.
                 It utilizes Redis, HBase/Cassandra (two different versions were implemented), and Cron-job. The performances of HBase and Cassandra
-                were compared, and Cassandra was finally chosen as it showed stronger stability. HBase raised node failure issues,
+                were compared, and Cassandra was finally chosen as it showed stronger stability. HBase raised rejected write issues,
                 region server buffer overflow issues, and double counting issues during busy time. Cassandra showed strong stability while keeping
                 counter accuracy in a reasonable range. This directly affects Hulu customers' experiences since lists of popular videos and shows
-                that are displayed to customers are determined by sorting view counts.
+                that are displayed to customers are determined by sorting videos and shows by their view counts.
             </p>
 
         </div>
@@ -53,14 +53,13 @@
                 meta data for every file, information about all the CDN Nodes in the system. Meta data includes file hashes and
                 time stamps. It also contains a list of files that each CDN Node contains and ip addresses and ports of CDN Nodes
                 as well as those of FSS. It optimizes the sync flow by checking file hashes and directs sync requests to
-                right CDN Nodes by using its own selection algorithm. Selection Algorithm is as follows: 1. CDN Nodes that have file(s)
-                in cache already 2. Choose the geographically closest CDN Node 3. If all the CDN Nodes that have the file
-                in cache are farther than FSS from the Client App, choose the closest CDN Node, which does not have the file
-                in cache. (this condition prevents the inefficiency which arises when a person first uploads a file in NY
-                and later tries to access it in LA)
+                right CDN Nodes by using its own selection algorithm. The selection algorithm is as follows: 1. CDN Nodes that have file(s)
+                already 2. Choose the geographically closest CDN Node 3. If all the CDN Nodes that have the file
+                are farther than FSS from the client, choose the closest CDN Node, which does not have the file.
+                (this condition prevents the inefficiency which arises when a person first uploads a file in NY and later tries to access it in LA)
             </p>
             <p>
-                CDN Nodes: local cache servers that are geographically spread out and get files from FSS. Prefetching technique 
+                CDN Nodes: local cache servers that are geographically spread out and get files from FSS. Prefetching technique
                 is used to increase cache hit ratio.
             </p>
             <p>
@@ -134,7 +133,7 @@
                 It is a graph where nodes are keywords with directed weighted edges between them. Direction and weight of each edge
                 is based on the probabilistic relationship between the two keywords (nodes). Community detection algorithm is applied
                 on the graph to discover dense clustered groups of keywords, which are representative of possible topics.
-                More details and experimental results are shown in this
+                More details and experimental results are shown in the below link to PPT:
             </p>
             <p>
                 <a href="https://docs.google.com/presentation/d/1KVi-ZAMbRZLxL_pYrJqkkIZJ-5kIT6RsAbl8ozwjqeU/edit">PPT</a>
