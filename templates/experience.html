@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div id="site_content">
+      <div id="sidebar_container">
+        <div class="gallery">
+          <ul class="images">
+            <img width="450" height="450" src="{{ url_for('static', filename='images/experience.png') }}"/>
+          </ul>
+        </div>
+      </div>
+      <div id="content">
+        <h1>Work</h1>
+          <ul>
+            <li>Glossi - Software Developer Intern</li>
+            <li>Symantec - Software Engineering Intern</li>
+            <li>eBay (Paypal) - Software Developer Intern</li>
+            <li>hulu - Software Developer Intern</li>
+          </ul>
+        <h1>Research</h1>
+          <ul>
+            <li>Scalable Analytics Institute (ScAI) - Undergraduate Researcher</li>
+          </ul>
+      </div>
+    </div>
+{% endblock %}

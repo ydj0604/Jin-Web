@@ -15,7 +15,9 @@ def portfolio():
 def resume():
     return render_template('resume.html')
 
-
+@app.route('/experience')
+def experience():
+    return render_template('experience.html')
 
 if __name__ == '__main__':
     app.run()
